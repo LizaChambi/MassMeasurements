@@ -9,11 +9,6 @@ Class {
 }
 
 { #category : #converting }
-MassUnit >> adaptToNumber: anInteger andSend: aString [ 
-	^ self subclassResponsibility 
-]
-
-{ #category : #converting }
 MassUnit >> adaptToNumberPerform: anInteger [
 	^ self subclassResponsibility 
 ]
