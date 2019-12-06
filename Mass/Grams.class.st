@@ -1,0 +1,90 @@
+Class {
+	#name : #Grams,
+	#superclass : #MassUnit,
+	#category : #Mass
+}
+
+{ #category : #'instance creation' }
+Grams class >> new: aInteger [
+	"comment stating purpose of message"
+
+	^ (self new) grams: aInteger.
+]
+
+{ #category : #converting }
+Grams >> adaptToNumberPerform: anInteger [
+	^ anInteger grams.
+]
+
+{ #category : #converting }
+Grams >> asGrams [
+	"comment stating purpose of message"
+	^ self
+]
+
+{ #category : #converting }
+Grams >> asMilligrams [
+	"comment stating purpose of message"
+	^ Milligram new: value * self milligramsInGram .
+]
+
+{ #category : #converting }
+Grams >> asPounds [
+	"comment stating purpose of message"
+	^ Pounds new pounds: value / self gramsInPound.
+]
+
+{ #category : #converting }
+Grams >> convertToGrams: aInteger [
+	"comment stating purpose of message"
+	^ aInteger grams
+]
+
+{ #category : #converting }
+Grams >> convertToPounds: aInteger [
+	"comment stating purpose of message"
+	^ (aInteger * Pounds poundsInGram) pounds.
+]
+
+{ #category : #converting }
+Grams >> div: aValue by: aInteger [
+	"comment stating purpose of message"
+	^ (aValue / aInteger) grams.
+
+]
+
+{ #category : #'as yet unclassified' }
+Grams >> grams [
+	"comment stating purpose of message"
+	^ value.
+]
+
+{ #category : #'as yet unclassified' }
+Grams >> grams: aInteger [
+	"comment stating purpose of message"
+	value := aInteger.
+]
+
+{ #category : #converting }
+Grams >> inGrams [
+	^ 1 .
+]
+
+{ #category : #converting }
+Grams >> initValue: aValue minusMass: aMass [
+	"comment stating purpose of message"
+	^ (aValue - (aMass asGrams) value) grams.
+]
+
+{ #category : #converting }
+Grams >> initValue: aValue sumMass: aMass [
+	"comment stating purpose of message"
+	^ (aValue + (aMass asGrams value)) grams.
+]
+
+{ #category : #converting }
+Grams >> mult: aValue by: aInteger [
+	"comment stating purpose of message"
+	^ (aValue * aInteger) grams.
+
+]
