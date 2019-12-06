@@ -5,19 +5,8 @@ Class {
 }
 
 { #category : #'as yet unclassified' }
-Pounds >> adaptToNumber: anInteger andSend: aString [ 
-	^ (anInteger perform: aString with: self value) pounds.
-]
-
-{ #category : #'as yet unclassified' }
 Pounds >> adaptToNumberPerform: anInteger [
 	^ anInteger pounds.
-]
-
-{ #category : #converting }
-Pounds >> asMilligrams [
-	"comment stating purpose of message"
-	^ Milligram new: value * self milligramsInPound.
 ]
 
 { #category : #converting }
