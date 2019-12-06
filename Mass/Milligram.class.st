@@ -4,12 +4,6 @@ Class {
 	#category : #Mass
 }
 
-{ #category : #'instance creation' }
-Milligram class >> new: aInteger [
-	"comment stating purpose of message"
-	^ self new milligram: aInteger.
-]
-
 { #category : #converting }
 Milligram >> * aInteger [
 	"comment stating purpose of message"

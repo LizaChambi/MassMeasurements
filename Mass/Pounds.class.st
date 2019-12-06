@@ -5,42 +5,6 @@ Class {
 }
 
 { #category : #'as yet unclassified' }
-Pounds class >> new: aInteger [
-	"comment stating purpose of message"
-	^ self new pounds: aInteger.
-]
-
-{ #category : #'as yet unclassified' }
-Pounds class >> poundsInGram [
-	"comment stating purpose of message"
-	^ 1/450.
-]
-
-{ #category : #converting }
-Pounds >> * aInteger [
-	"comment stating purpose of message"
-	(aInteger isNumber ) ifTrue: [ ^ (value * aInteger) pounds ] ifFalse: [ self error: 'El valor de la operación aritmética es incorrecta.' ].
-]
-
-{ #category : #converting }
-Pounds >> + aMass [
-	"comment stating purpose of message"
-	^ (value + (aMass asPounds pounds)) pounds.
-]
-
-{ #category : #converting }
-Pounds >> - aMass [
-	"comment stating purpose of message"
-	^ (value - (aMass asPounds pounds)) pounds.
-]
-
-{ #category : #converting }
-Pounds >> / aInteger [
-	"comment stating purpose of message"
-	[ ^ (value / aInteger) pounds ] ifError: [ self error: 'El valor de la operación aritmética es incorrecta.' ]..
-]
-
-{ #category : #'as yet unclassified' }
 Pounds >> adaptToNumber: anInteger andSend: aString [ 
 	^ (anInteger perform: aString with: self value) pounds.
 ]
@@ -51,21 +15,9 @@ Pounds >> adaptToNumberPerform: anInteger [
 ]
 
 { #category : #converting }
-Pounds >> asGrams [
-	"comment stating purpose of message"
-	^ Grams new grams: value * self gramsInPound.
-]
-
-{ #category : #converting }
 Pounds >> asMilligrams [
 	"comment stating purpose of message"
 	^ Milligram new: value * self milligramsInPound.
-]
-
-{ #category : #converting }
-Pounds >> asPounds [
-	"comment stating purpose of message"
-	^ self.
 ]
 
 { #category : #converting }
@@ -84,11 +36,6 @@ Pounds >> convertToPounds: aInteger [
 Pounds >> div: aValue by: aInteger [
 	"comment stating purpose of message"
 	^ (aValue / aInteger) pounds.
-]
-
-{ #category : #converting }
-Pounds >> inGrams [
-	^ 1/450.
 ]
 
 { #category : #converting }

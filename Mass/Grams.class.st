@@ -4,34 +4,15 @@ Class {
 	#category : #Mass
 }
 
-{ #category : #'instance creation' }
-Grams class >> new: aInteger [
-	"comment stating purpose of message"
-
-	^ (self new) grams: aInteger.
-]
-
 { #category : #converting }
 Grams >> adaptToNumberPerform: anInteger [
 	^ anInteger grams.
 ]
 
 { #category : #converting }
-Grams >> asGrams [
-	"comment stating purpose of message"
-	^ self
-]
-
-{ #category : #converting }
 Grams >> asMilligrams [
 	"comment stating purpose of message"
 	^ Milligram new: value * self milligramsInGram .
-]
-
-{ #category : #converting }
-Grams >> asPounds [
-	"comment stating purpose of message"
-	^ Pounds new pounds: value / self gramsInPound.
 ]
 
 { #category : #converting }
@@ -43,7 +24,7 @@ Grams >> convertToGrams: aInteger [
 { #category : #converting }
 Grams >> convertToPounds: aInteger [
 	"comment stating purpose of message"
-	^ (aInteger * Pounds poundsInGram) pounds.
+	^ (aInteger * (Pounds new) poundsInGram) pounds.
 ]
 
 { #category : #converting }
@@ -63,11 +44,6 @@ Grams >> grams [
 Grams >> grams: aInteger [
 	"comment stating purpose of message"
 	value := aInteger.
-]
-
-{ #category : #converting }
-Grams >> inGrams [
-	^ 1 .
 ]
 
 { #category : #converting }
