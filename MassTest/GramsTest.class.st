@@ -10,18 +10,18 @@ Class {
 
 { #category : #tests }
 GramsTest >> setUp [
-	aGram := Grams new: 1.
-	zeroGrams := Grams new: 0.
+	aGram := Mass grams: 1.
+	zeroGrams := Mass grams: 0.
 ]
 
 { #category : #tests }
 GramsTest >> testAGramAsMilligrams [
 	"comment stating purpose of message"
-	self assert: (aGram asMilligrams) equals: (Milligram new: 1000).
+	self assert: (aGram asMilligrams) equals: (Mass milligrams: 1000).
 ]
 
 { #category : #tests }
 GramsTest >> testZeroGramAsMilligrams [
 	"comment stating purpose of message"
-	self assert: (zeroGrams asMilligrams) equals: (Milligram new: 0).
+	self assert: (zeroGrams asMilligrams) equals: (Mass milligrams: 0).
 ]

@@ -27,6 +27,12 @@ Pounds >> convertToGrams: aInteger [
 ]
 
 { #category : #converting }
+Pounds >> convertToMilligrams: aInteger. [
+	"comment stating purpose of message"
+	^ (aInteger / (Milligram new) poundsInMilligram) milligrams.
+]
+
+{ #category : #converting }
 Pounds >> convertToPounds: aInteger [
 	"comment stating purpose of message"
 	^ aInteger pounds.
@@ -56,20 +62,14 @@ Pounds >> mult: aValue by: aInteger [
 	^ (aValue * aInteger) pounds.
 ]
 
-{ #category : #'as yet unclassified' }
-Pounds >> pounds [
-	"comment stating purpose of message"
-	^ value.
-]
-
-{ #category : #'as yet unclassified' }
-Pounds >> pounds: aInteger [
-	"comment stating purpose of message"
-	value := aInteger
-]
-
 { #category : #converting }
 Pounds >> poundsInGram [
 	"comment stating purpose of message"
 	^ 1/450
+]
+
+{ #category : #converting }
+Pounds >> poundsInMilligram [
+	"comment stating purpose of message"
+	^ (1/450) / 1000.
 ]

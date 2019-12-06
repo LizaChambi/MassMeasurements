@@ -19,25 +19,6 @@ MassUnit >> adaptToNumberPerform: anInteger [
 ]
 
 { #category : #converting }
-MassUnit >> asGrams [
-	"comment stating purpose of message"
-	self convertTo: (Grams new) with: [ ^ unit convertToGrams: value. ] 
-	
-]
-
-{ #category : #converting }
-MassUnit >> asMilligrams [
-	"comment stating purpose of message"
-	self subclassResponsibility.
-]
-
-{ #category : #converting }
-MassUnit >> asPounds [
-	"comment stating purpose of message"
-	self convertTo: (Pounds new) with: [^ unit convertToPounds: value. ].
-]
-
-{ #category : #converting }
 MassUnit >> convertTo: aUnit with: aBlock [
 	"comment stating purpose of message"
 	(unit class = aUnit class) ifTrue: [ ^ self ] ifFalse: aBlock.
@@ -45,9 +26,27 @@ MassUnit >> convertTo: aUnit with: aBlock [
 ]
 
 { #category : #converting }
+MassUnit >> div: aValue by: aInteger [
+	"comment stating purpose of message"
+	^ self subclassResponsibility.
+]
+
+{ #category : #converting }
 MassUnit >> gramsInPound [
 	"comment stating purpose of message"
 	^ 450.
+]
+
+{ #category : #converting }
+MassUnit >> initValue: aValue minusMass: aMass [
+	"comment stating purpose of message"
+	^ self subclassResponsibility.
+]
+
+{ #category : #converting }
+MassUnit >> initValue: aValue sumMass: aMass. [
+	"comment stating purpose of message"
+	^ self subclassResponsibility.
 ]
 
 { #category : #converting }
@@ -60,4 +59,10 @@ MassUnit >> milligramsInGram [
 MassUnit >> milligramsInPound [
 	"comment stating purpose of message"
 	^ (0.001) / 450 .
+]
+
+{ #category : #converting }
+MassUnit >> mult: aValue by: aInteger [
+	"comment stating purpose of message"
+	^ self subclassResponsibility.
 ]

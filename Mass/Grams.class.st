@@ -16,9 +16,21 @@ Grams >> asMilligrams [
 ]
 
 { #category : #converting }
+Grams >> convert: aValue toUnit: aUnit [
+	"comment stating purpose of message"
+	^ ( aValue * aUnit inGrams) grams.
+]
+
+{ #category : #converting }
 Grams >> convertToGrams: aInteger [
 	"comment stating purpose of message"
 	^ aInteger grams
+]
+
+{ #category : #converting }
+Grams >> convertToMilligrams: aInteger. [
+	"comment stating purpose of message"
+	^ (aInteger * (Milligram new) gramsInMilligram) milligrams.
 ]
 
 { #category : #converting }
@@ -32,18 +44,6 @@ Grams >> div: aValue by: aInteger [
 	"comment stating purpose of message"
 	^ (aValue / aInteger) grams.
 
-]
-
-{ #category : #'as yet unclassified' }
-Grams >> grams [
-	"comment stating purpose of message"
-	^ value.
-]
-
-{ #category : #'as yet unclassified' }
-Grams >> grams: aInteger [
-	"comment stating purpose of message"
-	value := aInteger.
 ]
 
 { #category : #converting }

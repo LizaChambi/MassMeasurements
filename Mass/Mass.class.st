@@ -14,6 +14,11 @@ Mass class >> grams: aInteger [
 ]
 
 { #category : #initalize }
+Mass class >> milligrams: aInteger [
+	^ (self new) value: aInteger unit: Milligram new.
+]
+
+{ #category : #initalize }
 Mass class >> pounds: aInteger [
 	^ (self new) value: aInteger unit: Pounds new.
 ]
@@ -57,6 +62,12 @@ Mass >> adaptToNumber: anInteger andSend: aString [
 Mass >> asGrams [
 	"comment stating purpose of message"
 	^ massUnit convertToGrams: value.
+]
+
+{ #category : #converting }
+Mass >> asMilligrams [
+	"comment stating purpose of message"
+	^ massUnit convertToMilligrams: value.
 ]
 
 { #category : #converting }
