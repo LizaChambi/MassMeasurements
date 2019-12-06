@@ -4,7 +4,7 @@ Class {
 	#category : #Mass
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : #converting }
 Pounds >> adaptToNumberPerform: anInteger [
 	^ anInteger pounds.
 ]

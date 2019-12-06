@@ -4,19 +4,19 @@ Class {
 	#category : #Mass
 }
 
-{ #category : #converting }
+{ #category : #deprecated }
 Milligram >> * aInteger [
 	"comment stating purpose of message"
 	(aInteger isNumber ) ifTrue: [ ^ (value * aInteger) milligrams] ifFalse: [ self error: 'El valor de la operación aritmética es incorrecta.' ].
 ]
 
-{ #category : #converting }
+{ #category : #deprecated }
 Milligram >> + aMass [
 	"comment stating purpose of message"
 	(value + (aMass asMilligrams milligram )) milligrams.
 ]
 
-{ #category : #converting }
+{ #category : #deprecated }
 Milligram >> adaptToNumber: anInteger andSend: aString [ 
 	^ (anInteger perform: aString with: self value) milligrams.
 ]
@@ -26,19 +26,19 @@ Milligram >> adaptToNumberPerform: anInteger [
 	^ anInteger milligrams. 
 ]
 
-{ #category : #converting }
+{ #category : #deprecated }
 Milligram >> asGrams [
 	"comment stating purpose of message"
 	^ (value / self milligramsInGram) grams.
 ]
 
-{ #category : #converting }
+{ #category : #deprecated }
 Milligram >> asMilligrams [
 	"comment stating purpose of message"
 	^ self.
 ]
 
-{ #category : #converting }
+{ #category : #deprecated }
 Milligram >> asPounds [
 	"comment stating purpose of message"
 	^ ( value * self milligramsInPound ) pounds.
@@ -86,13 +86,13 @@ Milligram >> initValue: aValue sumMass: aMass. [
 	^ (aValue + (aMass asMilligrams value)) milligrams.
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #deprecated }
 Milligram >> milligram [
 	"comment stating purpose of message"
 	^ value.
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #deprecated }
 Milligram >> milligram: aInteger [
 	"comment stating purpose of message"
 	value := aInteger.

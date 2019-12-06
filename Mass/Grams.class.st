@@ -9,7 +9,7 @@ Grams >> adaptToNumberPerform: anInteger [
 	^ anInteger grams.
 ]
 
-{ #category : #converting }
+{ #category : #deprecated }
 Grams >> asMilligrams [
 	"comment stating purpose of message"
 	^ Milligram new: value * self milligramsInGram .

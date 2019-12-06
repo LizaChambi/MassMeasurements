@@ -26,12 +26,18 @@ Mass class >> pounds: aInteger [
 { #category : #initializing }
 Mass >> * aInteger [
 	"comment stating purpose of message"
+	
+	"(aInteger isNumber ) ifTrue: [ ^massUnit class new: (anInteger * value) ]"
+	
 	(aInteger isNumber ) ifTrue: [ ^ massUnit mult: value by: aInteger] ifFalse: [ self error: 'El valor de la operación aritmética es incorrecta.' ].
 ]
 
 { #category : #initializing }
 Mass >> + aMass [
 	"comment stating purpose of message"
+	"
+	(aMass isMass ) ifTrue: [ ^ (aMass convertToUnit: massUnit) value + value  ]"
+	
 	^ massUnit initValue: value sumMass: aMass.
 ]
 
