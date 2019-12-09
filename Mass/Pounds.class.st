@@ -37,5 +37,5 @@ Pounds >> poundsInGram [
 { #category : #converting }
 Pounds >> poundsInMilligram [
 	"comment stating purpose of message"
-	^ (1/450) / 1000.
+	^ (1/450) / 1000. "or 0.001 /450"
 ]

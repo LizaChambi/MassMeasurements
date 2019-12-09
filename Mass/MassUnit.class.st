@@ -9,37 +9,7 @@ Class {
 }
 
 { #category : #converting }
-MassUnit >> gramsInPound [
-	"comment stating purpose of message"
-	^ 450.
-]
-
-{ #category : #converting }
 MassUnit >> initValue: aValue minusMass: aMass [
-	"comment stating purpose of message"
-	^ self subclassResponsibility.
-]
-
-{ #category : #converting }
-MassUnit >> initValue: aValue sumMass: aMass. [
-	"comment stating purpose of message"
-	^ self subclassResponsibility.
-]
-
-{ #category : #converting }
-MassUnit >> milligramsInGram [
-	"comment stating purpose of message"
-	^ 1000.
-]
-
-{ #category : #converting }
-MassUnit >> milligramsInPound [
-	"comment stating purpose of message"
-	^ (0.001) / 450 .
-]
-
-{ #category : #converting }
-MassUnit >> mult: aValue by: aInteger [
 	"comment stating purpose of message"
 	^ self subclassResponsibility.
 ]

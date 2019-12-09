@@ -27,3 +27,9 @@ Grams >> convertToPounds: aInteger [
 	"comment stating purpose of message"
 	^ (aInteger * (Pounds new) poundsInGram) pounds.
 ]
+
+{ #category : #converting }
+Grams >> gramsInPound [
+	"comment stating purpose of message"
+	^ 450.
+]
