@@ -4,9 +4,10 @@ Class {
 	#category : #Mass
 }
 
-{ #category : #converting }
-Pounds >> adaptToNumberPerform: anInteger [
-	^ anInteger pounds.
+{ #category : #'instance creation' }
+Pounds class >> new: aValue [
+	"comment stating purpose of message"
+	^ (Mass new) value: aValue unit: (self new).
 ]
 
 { #category : #converting }
@@ -25,30 +26,6 @@ Pounds >> convertToMilligrams: aInteger. [
 Pounds >> convertToPounds: aInteger [
 	"comment stating purpose of message"
 	^ aInteger pounds.
-]
-
-{ #category : #converting }
-Pounds >> div: aValue by: aInteger [
-	"comment stating purpose of message"
-	^ (aValue / aInteger) pounds.
-]
-
-{ #category : #converting }
-Pounds >> initValue: aValue minusMass: aMass [
-	"comment stating purpose of message"
-	^ (aValue - (aMass asPounds value)) pounds.
-]
-
-{ #category : #converting }
-Pounds >> initValue: aValue sumMass: aMass [
-	"comment stating purpose of message"
-	^ (aValue + (aMass asPounds value)) pounds.
-]
-
-{ #category : #converting }
-Pounds >> mult: aValue by: aInteger [
-	"comment stating purpose of message"
-	^ (aValue * aInteger) pounds.
 ]
 
 { #category : #converting }

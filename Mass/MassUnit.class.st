@@ -9,24 +9,6 @@ Class {
 }
 
 { #category : #converting }
-MassUnit >> adaptToNumberPerform: anInteger [
-	^ self subclassResponsibility 
-]
-
-{ #category : #converting }
-MassUnit >> convertTo: aUnit with: aBlock [
-	"comment stating purpose of message"
-	(unit class = aUnit class) ifTrue: [ ^ self ] ifFalse: aBlock.
-	
-]
-
-{ #category : #converting }
-MassUnit >> div: aValue by: aInteger [
-	"comment stating purpose of message"
-	^ self subclassResponsibility.
-]
-
-{ #category : #converting }
 MassUnit >> gramsInPound [
 	"comment stating purpose of message"
 	^ 450.

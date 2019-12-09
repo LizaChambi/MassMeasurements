@@ -4,44 +4,10 @@ Class {
 	#category : #Mass
 }
 
-{ #category : #deprecated }
-Milligram >> * aInteger [
+{ #category : #'instance creation' }
+Milligram class >> new: aValue [
 	"comment stating purpose of message"
-	(aInteger isNumber ) ifTrue: [ ^ (value * aInteger) milligrams] ifFalse: [ self error: 'El valor de la operación aritmética es incorrecta.' ].
-]
-
-{ #category : #deprecated }
-Milligram >> + aMass [
-	"comment stating purpose of message"
-	(value + (aMass asMilligrams milligram )) milligrams.
-]
-
-{ #category : #deprecated }
-Milligram >> adaptToNumber: anInteger andSend: aString [ 
-	^ (anInteger perform: aString with: self value) milligrams.
-]
-
-{ #category : #converting }
-Milligram >> adaptToNumberPerform: anInteger [
-	^ anInteger milligrams. 
-]
-
-{ #category : #deprecated }
-Milligram >> asGrams [
-	"comment stating purpose of message"
-	^ (value / self milligramsInGram) grams.
-]
-
-{ #category : #deprecated }
-Milligram >> asMilligrams [
-	"comment stating purpose of message"
-	^ self.
-]
-
-{ #category : #deprecated }
-Milligram >> asPounds [
-	"comment stating purpose of message"
-	^ ( value * self milligramsInPound ) pounds.
+	^ (Mass new) value: aValue unit: (self new).
 ]
 
 { #category : #converting }
@@ -63,45 +29,9 @@ Milligram >> convertToPounds: aInteger [
 ]
 
 { #category : #converting }
-Milligram >> div: aValue by: aInteger [
-	"comment stating purpose of message"
-	^ (aValue / aInteger) milligrams.
-]
-
-{ #category : #converting }
 Milligram >> gramsInMilligram [
 	"comment stating purpose of message"
 	^ 1000 .
-]
-
-{ #category : #converting }
-Milligram >> initValue: aValue minusMass: aMass [
-	"comment stating purpose of message"
-	^ (aValue - (aMass asMilligrams) value) milligrams.
-]
-
-{ #category : #converting }
-Milligram >> initValue: aValue sumMass: aMass. [
-	"comment stating purpose of message"
-	^ (aValue + (aMass asMilligrams value)) milligrams.
-]
-
-{ #category : #deprecated }
-Milligram >> milligram [
-	"comment stating purpose of message"
-	^ value.
-]
-
-{ #category : #deprecated }
-Milligram >> milligram: aInteger [
-	"comment stating purpose of message"
-	value := aInteger.
-]
-
-{ #category : #converting }
-Milligram >> mult: aValue by: aInteger [
-	"comment stating purpose of message"
-	^ (aValue * aInteger) milligrams.
 ]
 
 { #category : #converting }

@@ -7,9 +7,9 @@ Class {
 { #category : #tests }
 MassTest >> test10GramMinus100Grams [
 	"comment stating purpose of message"
-	| aGrams |
-	aGrams := Mass grams: 10.
-	self assert: ( aGrams - (Mass grams: 100)) equals: (Mass grams: -90).
+	| grams |
+	grams := Mass grams: 10.
+	self assert: ( grams - (Mass grams: 100)) equals: (Mass grams: -90).
 ]
 
 { #category : #tests }
@@ -166,6 +166,30 @@ MassTest >> testException10PoundsMult100Grams [
 	| pounds |
 	pounds := Mass pounds: 10.
 	self should: [pounds * (Mass grams: 100)] raise: (Error).
+]
+
+{ #category : #tests }
+MassTest >> testException450Div10Grams [
+	"comment stating purpose of message"
+	| grams |
+	grams := Mass grams: 10.
+	self should: [ 450 / grams] raise: (Error).
+]
+
+{ #category : #tests }
+MassTest >> testException450Minus10Grams [
+	"comment stating purpose of message"
+	| grams |
+	grams := Mass grams: 10.
+	self should: [ 450 - grams] raise: (Error).
+]
+
+{ #category : #tests }
+MassTest >> testException450Sum10Grams [
+	"comment stating purpose of message"
+	| grams |
+	grams := Mass grams: 10.
+	self should: [ 450 + grams] raise: (Error).
 ]
 
 { #category : #tests }

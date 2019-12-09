@@ -24,33 +24,38 @@ Mass class >> pounds: aInteger [
 ]
 
 { #category : #initializing }
-Mass >> * aInteger [
+Mass >> * aValue [
 	"comment stating purpose of message"
 	
-	"(aInteger isNumber ) ifTrue: [ ^massUnit class new: (anInteger * value) ]"
+	(aValue isNumber ) ifTrue: [ ^massUnit class new: (aValue * value) ] ifFalse: [ self error: 'El valor de la operación aritmética es incorrecta.' ].
 	
-	(aInteger isNumber ) ifTrue: [ ^ massUnit mult: value by: aInteger] ifFalse: [ self error: 'El valor de la operación aritmética es incorrecta.' ].
+	"(aInteger isNumber ) ifTrue: [ ^ massUnit mult: value by: aInteger] ifFalse: [ self error: 'El valor de la operación aritmética es incorrecta.' ]."
 ]
 
 { #category : #initializing }
 Mass >> + aMass [
 	"comment stating purpose of message"
-	"
-	(aMass isMass ) ifTrue: [ ^ (aMass convertToUnit: massUnit) value + value  ]"
+	"(aMass isMass ) ifTrue: [ ^ massUnit class new: ((aMass convertTo: massUnit) value + value) ] "
+	[ (aMass isMass) ifTrue: [^ massUnit class new: ((aMass convertTo: massUnit) value + value)] ] ifError: [self error: 'El valor de la operación aritmética es incorrecta.' ].
 	
-	^ massUnit initValue: value sumMass: aMass.
+	"^ massUnit initValue: value sumMass: aMass."
 ]
 
 { #category : #initializing }
 Mass >> - aMass [
 	"comment stating purpose of message"
-	^ massUnit initValue: value minusMass: aMass
+	(aMass isMass ) ifTrue: [ ^ massUnit class new: (value - (aMass convertTo: massUnit) value) ] 
+	ifFalse: [self error: 'El valor de la operación aritmética es incorrecta.' ].
+	
+	"^ massUnit initValue: value minusMass: aMass"
 ]
 
 { #category : #initializing }
-Mass >> / aInteger [
+Mass >> / aValue [
 	"comment stating purpose of message"
-	[ ^ massUnit div: value by: aInteger] ifError: [ self error: 'El valor de la operación aritmética es incorrecta.' ].
+	(aValue isNumber ) ifTrue: [ ^massUnit class new: (value / aValue ) ] ifFalse: [ self error: 'El valor de la operación aritmética es incorrecta.' ].
+	
+	"[ ^ massUnit div: value by: aInteger] ifError: [ self error: 'El valor de la operación aritmética es incorrecta.' ]."
 ]
 
 { #category : #initializing }
@@ -61,7 +66,8 @@ Mass >> = aMass [
 
 { #category : #converting }
 Mass >> adaptToNumber: anInteger andSend: aString [ 
-	^ massUnit adaptToNumberPerform: (anInteger perform: aString with: value).
+
+	(aString = #* ) ifTrue:[^ massUnit class new: (anInteger perform: aString with: value)] ifFalse:[ self error: 'El valor de la operación aritmética es incorrecta.' ]
 ]
 
 { #category : #converting }
@@ -82,22 +88,25 @@ Mass >> asPounds [
 	^ massUnit convertToPounds: value.
 ]
 
-{ #category : #initializing }
-Mass >> convertTo: aUnit [
+{ #category : #'model access' }
+Mass >> convertTo: aMassUnit [
 	"comment stating purpose of message"
-	(massUnit class = aUnit class) ifTrue: [ ^ self ] ifFalse: [^ self convertValueTo: aUnit ].
-]
-
-{ #category : #initializing }
-Mass >> convertTo: aUnit withMethod: aStringMethod [
-	"comment stating purpose of message"
-	(massUnit class = aUnit) ifTrue: [ ^ self ] ifFalse: [^ (self convertValueTo: (aUnit new)) perform: aStringMethod ].
+	(aMassUnit class = Grams) ifTrue: [ ^ self asGrams ].
+	(aMassUnit class = Pounds) ifTrue: [ ^ self asPounds ].
+	(aMassUnit class = Milligram) ifTrue: [ ^ self asMilligrams ].
+		
 ]
 
 { #category : #converting }
 Mass >> convertValueTo: aMassUnit [
 	"comment stating purpose of message"
 	^ self asGrams value * (aMassUnit inGrams).
+]
+
+{ #category : #testing }
+Mass >> isMass [
+	"comment stating purpose of message"
+	^ true
 ]
 
 { #category : #initializing }
